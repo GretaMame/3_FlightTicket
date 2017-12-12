@@ -6,11 +6,28 @@ using System.Threading.Tasks;
 
 namespace _3_FlightTicket.Extension_Object
 {
-    class CarRental : TicketExtension
+    class CarRental : ITicketExtension
     {
+        decimal rentalCarInsurancePrice;
+        decimal rentalCarPrice;
+
+        public CarRental()
+        {
+            Console.WriteLine("Car rental added to ticket price.");
+            rentalCarPrice = 100m;
+        }
+
         public decimal GetPrice()
         {
-            throw new NotImplementedException();
+            AddRentalCarInsurance();
+            Console.WriteLine("Car rental: " + rentalCarPrice);
+            return rentalCarPrice + rentalCarInsurancePrice;
+        }
+
+        public void AddRentalCarInsurance()
+        {
+            rentalCarInsurancePrice = 20m;
+            Console.WriteLine("Rental car insurance: " + rentalCarInsurancePrice);
         }
     }
 }

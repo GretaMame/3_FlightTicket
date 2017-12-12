@@ -8,19 +8,15 @@ namespace _3_FlightTicket.Extension_Object
 {
     class PaperTicket : Ticket
     {
-        public override void AddExtension()
+        public PaperTicket()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Paper ticket created.");
+            AddPaperFee();
         }
 
-        public override void GetExtension()
+        public void AddPaperFee()
         {
-            throw new NotImplementedException();
-        }
-
-        public override void RemoveExtension()
-        {
-            throw new NotImplementedException();
+            ticketPrice += 20m;
         }
     }
 }

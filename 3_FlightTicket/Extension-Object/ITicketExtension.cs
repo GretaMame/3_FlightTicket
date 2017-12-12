@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _3_FlightTicket.Extension_Object
 {
-    interface TicketExtension
+    interface ITicketExtension
     {
         decimal GetPrice();
     }

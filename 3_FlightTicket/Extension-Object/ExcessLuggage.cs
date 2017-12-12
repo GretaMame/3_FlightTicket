@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace _3_FlightTicket.Extension_Object
 {
-    class ExcessLuggage : TicketExtension
+    class ExcessLuggage : ITicketExtension
     {
+        public ExcessLuggage()
+        {
+            Console.WriteLine("Excess luggage added to ticket price.");
+        }
+
         public decimal GetPrice()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Excess luggage: " + 30m);
+            return 30m;
         }
     }
 }

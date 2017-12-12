@@ -54,7 +54,7 @@
     <Compile Include="Extension-Object\ExcessLuggage.cs" />
     <Compile Include="Extension-Object\FlightCancellationInsurance.cs" />
     <Compile Include="Extension-Object\PriorityBoarding.cs" />
-    <Compile Include="Extension-Object\TicketExtension.cs" />
+    <Compile Include="Extension-Object\ITicketExtension.cs" />
     <Compile Include="Extension-Object\PaperTicket.cs" />
     <Compile Include="Extension-Object\Ticket.cs" />
     <Compile Include="Program.cs" />

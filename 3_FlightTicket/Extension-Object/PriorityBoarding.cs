@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace _3_FlightTicket.Extension_Object
 {
-    class PriorityBoarding : TicketExtension
+    class PriorityBoarding : ITicketExtension
     {
+        public PriorityBoarding()
+        {
+            Console.WriteLine("Priority boarding added to ticket price.");
+        }
+
         public decimal GetPrice()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Priority boarding: " + 5m);
+            return 5m;
         }
     }
 }

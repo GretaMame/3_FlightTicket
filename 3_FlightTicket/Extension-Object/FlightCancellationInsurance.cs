@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace _3_FlightTicket.Extension_Object
 {
-    class FlightCancellationInsurance : TicketExtension
+    class FlightCancellationInsurance : ITicketExtension
     {
+        public FlightCancellationInsurance()
+        {
+            Console.WriteLine("Flight cancelation insurance added to ticket price.");
+        }
+
         public decimal GetPrice()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Flight cancelation insurance: " + 20m);
+            return 20m;
         }
     }
 }

@@ -27,6 +27,64 @@ namespace _3_FlightTicket
 
         public static void ExtensionObjectMenu()
         {
+            int ticketSelection = PrintTicketSelectionMenu();
+            switch (ticketSelection)
+            {
+                case 1:
+                    ExtensionObjectAddTicketServices(new Extension_Object.PaperTicket());
+                    break;
+                case 2:
+                    ExtensionObjectAddTicketServices(new Extension_Object.ElectronicTicket());
+                    break;
+                case 3:
+                    Environment.Exit(0);
+                    break;
+            }
+        }
+
+        public static void ExtensionObjectAddTicketServices(Extension_Object.Ticket ticketType)
+        {
+            Extension_Object.Ticket ticket = ticketType;
+            int selection = PrintExtraSelctionMenu();
+            while (selection != 9) //exit number 9
+            {
+                switch (selection)
+                {
+                    case 1:
+                        //if (!(ticket is Decorator.ExcessLuggage))
+                        {
+                            //ticket = new Decorator.ExcessLuggage(ticket);
+                        }
+                        break;
+                    case 2:
+                        //ticket = new Decorator.PriorityBoarding(ticket);
+                        break;
+                    case 3:
+                        //ticket = new Decorator.FlightCancelationInsurance(ticket);
+                        break;
+                    case 4:
+                        //ticket = new Decorator.CarRental(ticket);
+                        break;
+                    case 5:
+                        //ticket = (ExcessLuggage)ticket.RemoveDecorator();
+                        break;
+                    case 6:
+
+                        break;
+                    case 7:
+
+                        break;
+                    case 8:
+
+                        break;
+                }
+                selection = PrintExtraSelctionMenu();
+            }
+            Console.WriteLine("");
+            Console.WriteLine("\\-- CHECKOUT --//");
+            Console.WriteLine("Total price: " + ticket.GetPrice());
+            Console.WriteLine("");
+            DecoratorMenu();
 
         }
 
@@ -36,10 +94,10 @@ namespace _3_FlightTicket
             switch (ticketSelection)
             {
                 case 1:
-                    AddTicketServices(new Decorator.PaperTicket());
+                    DecoratorAddTicketServices(new Decorator.PaperTicket());
                     break;
                 case 2:
-                    AddTicketServices(new Decorator.ElectronicTicket());
+                    DecoratorAddTicketServices(new Decorator.ElectronicTicket());
                     break;
                 case 3:
                     Environment.Exit(0);
@@ -47,7 +105,7 @@ namespace _3_FlightTicket
             }
         }
 
-        public static void AddTicketServices(Decorator.ITicket ticketType)
+        public static void DecoratorAddTicketServices(Decorator.ITicket ticketType)
         {
             Decorator.ITicket ticket = ticketType;
             int selection = PrintExtraSelctionMenu();
@@ -92,6 +150,8 @@ namespace _3_FlightTicket
             DecoratorMenu();
 
         }
+
+
 
         public static int PrintExtraSelctionMenu()
         {

@@ -8,19 +8,9 @@ namespace _3_FlightTicket.Extension_Object
 {
     class ElectronicTicket : Ticket
     {
-        public override void AddExtension()
+        public ElectronicTicket()
         {
-            throw new NotImplementedException();
-        }
-
-        public override void GetExtension()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void RemoveExtension()
-        {
-            throw new NotImplementedException();
+            Console.WriteLine("Electronic ticket created");
         }
     }
 }
