@@ -10,7 +10,7 @@ namespace _3_FlightTicket.Extension_Object
     {
         public ExcessLuggage()
         {
-            Console.WriteLine("Excess luggage added to ticket price.");
+            Console.WriteLine("Excess luggage added to ticket.");
         }
 
         public decimal GetPrice()

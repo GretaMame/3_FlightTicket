@@ -9,26 +9,25 @@ namespace _3_FlightTicket.Decorator
     class ExcessLuggage : TicketDecorator
     {
 
-        public ExcessLuggage(ITicket ticket)
+        public ExcessLuggage(ITicket ticket) : base(ticket)
         {
-            Console.WriteLine("Excess luggage added to ticket price.");
-            this.ticket = ticket;
+            Console.WriteLine("Excess luggage added to ticket.");
         }
 
         public override decimal GetPrice()
         {
             Console.WriteLine("Excess luggage: "+ 30m);
-            return ticket.GetPrice() + 30m;
+            return base.GetPrice() + 30m;
         }
 
-        public override ITicket RemoveDecorator()
-        {
-            if (ticket is PriorityBoarding)
-            {
-                Console.WriteLine("Removing excess luggage");
-                return ticket;
-            }
-            else return ticket;
-        }
+        //public override ITicket RemoveDecorator()
+        //{
+        //    if (ticket is PriorityBoarding)
+        //    {
+        //        Console.WriteLine("Removing excess luggage");
+        //        return ticket;
+        //    }
+        //    else return ticket;
+        //}
     }
 }

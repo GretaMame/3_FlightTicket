@@ -13,7 +13,7 @@ namespace _3_FlightTicket.Extension_Object
 
         public CarRental()
         {
-            Console.WriteLine("Car rental added to ticket price.");
+            Console.WriteLine("Car rental added to ticket.");
             rentalCarPrice = 100m;
         }
 

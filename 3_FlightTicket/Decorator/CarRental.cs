@@ -8,38 +8,31 @@ namespace _3_FlightTicket.Decorator
 {
     class CarRental : TicketDecorator
     {
-        decimal rentalCarInsurancePrice;
+       // decimal rentalCarInsurancePrice;
         decimal rentalCarPrice;
 
-        public CarRental(ITicket ticket)
+        public CarRental(ITicket ticket) : base(ticket)
         {
-            Console.WriteLine("Car rental added to ticket price.");
-            this.ticket = ticket;
+            Console.WriteLine("Car rental added to ticket.");
             rentalCarPrice = 100m;
+            //rentalCarInsurancePrice = 30m;
         }
 
 
         public override decimal GetPrice()
         {
-            AddRentalCarInsurance();
             Console.WriteLine("Car rental: " + rentalCarPrice);
-            return ticket.GetPrice() + rentalCarPrice + rentalCarInsurancePrice;
+            return base.GetPrice() + rentalCarPrice;//+ rentalCarInsurancePrice;
         }
 
-        public override ITicket RemoveDecorator()
-        {
-            if (ticket is PriorityBoarding)
-            {
-                Console.WriteLine("Removing car rental");
-                return ticket;
-            }
-            else return ticket;
-        }
-
-        public void AddRentalCarInsurance()
-        {
-            rentalCarInsurancePrice = 20m;
-            Console.WriteLine("Rental car insurance: " + rentalCarInsurancePrice);
-        }
+        //public override ITicket RemoveDecorator()
+        //{
+        //    if (ticket is PriorityBoarding)
+        //    {
+        //        Console.WriteLine("Removing car rental");
+        //        return ticket;
+        //    }
+        //    else return ticket;
+        //}
     }
 }

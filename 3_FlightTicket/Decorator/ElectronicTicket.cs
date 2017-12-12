@@ -8,15 +8,18 @@ namespace _3_FlightTicket.Decorator
 {
     class ElectronicTicket : ITicket
     {
+        public decimal TicketPrice{get; set;}
         public ElectronicTicket()
         {
+            TicketPrice = 100m;
             Console.WriteLine("Electronic ticket created");
+            Console.WriteLine("Original price: " + TicketPrice);
         }
 
         public decimal GetPrice()
         {
-            Console.WriteLine("Ticket price: " + 100m);
-            return 100m;
+            Console.WriteLine("Ticket price: " + TicketPrice);
+            return TicketPrice;
         }
     }
 }

@@ -28,45 +28,56 @@ namespace _3_FlightTicket
         public static void ExtensionObjectAddTicketServices(Extension_Object.Ticket ticketType)
         {
             Extension_Object.Ticket ticket = ticketType;
+            string excessLuggage = "Excess luggage";
+            string priorityBoarding = "Priority boarding";
+            string flightCancellationInsurance = "Flight cancellation insurance";
+            string carRental = "Car rental";
+            string voucher = "Voucher";
             int selection = MenuUI.PrintExtraSelctionMenu();
-            while (selection != 9) //exit number 9
+            while (selection != 12) //exit number 12
             {
                 switch (selection)
                 {
                     case 1:
-                        //if (!(ticket is Decorator.ExcessLuggage))
-                        {
-                            //ticket = new Decorator.ExcessLuggage(ticket);
-                        }
+                        ticket.AddExtension(excessLuggage, new Extension_Object.ExcessLuggage());
                         break;
                     case 2:
-                        //ticket = new Decorator.PriorityBoarding(ticket);
+                        ticket.AddExtension(priorityBoarding, new Extension_Object.PriorityBoarding());
                         break;
                     case 3:
-                        //ticket = new Decorator.FlightCancelationInsurance(ticket);
+                        ticket.AddExtension(flightCancellationInsurance, new Extension_Object.FlightCancellationInsurance());
                         break;
                     case 4:
-                        //ticket = new Decorator.CarRental(ticket);
+                        ticket.AddExtension(carRental, new Extension_Object.CarRental());
                         break;
                     case 5:
-                        //ticket = (ExcessLuggage)ticket.RemoveDecorator();
+                        ticket.AddExtension(voucher, new Extension_Object.Voucher());
                         break;
                     case 6:
-
+                        ticket.RemoveExtension(excessLuggage);
                         break;
                     case 7:
-
+                        ticket.RemoveExtension(priorityBoarding);
                         break;
                     case 8:
-
+                        ticket.RemoveExtension(flightCancellationInsurance);
+                        break;
+                    case 9:
+                        ticket.RemoveExtension(carRental);
+                        break;
+                    case 10:
+                        ticket.RemoveExtension(voucher);
+                        break;
+                    case 11:
+                        if(ticket.GetExtension(voucher)!= null)
+                        {
+                            MenuUI.PrintDiscount(((Extension_Object.Voucher)ticket.GetExtension(voucher)).CalculateDiscount());
+                        }
                         break;
                 }
                 selection = MenuUI.PrintExtraSelctionMenu();
             }
-            Console.WriteLine("");
-            Console.WriteLine("\\-- CHECKOUT --//");
-            Console.WriteLine("Total price: " + ticket.GetPrice());
-            Console.WriteLine("");
+            MenuUI.PrintCheckout(ticket.GetPrice());
             ExtensionObjectMenu();
         }
     }

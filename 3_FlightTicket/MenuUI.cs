@@ -16,15 +16,19 @@ namespace _3_FlightTicket
             Console.WriteLine("2. Add priority boarding");
             Console.WriteLine("3. Add flight cancellation insurance");
             Console.WriteLine("4. Add car rental");
-            Console.WriteLine("5. Remove excess luggage");
-            Console.WriteLine("6. Remove priority boarding");
-            Console.WriteLine("7. Remove flight cancellation insurance");
-            Console.WriteLine("8. Remove car rental");
-            Console.WriteLine("9. Proceed to checkout");
+            Console.WriteLine("5. Add voucher");
+            Console.WriteLine("6. Remove excess luggage");
+            Console.WriteLine("7. Remove priority boarding");
+            Console.WriteLine("8. Remove flight cancellation insurance");
+            Console.WriteLine("9. Remove car rental");
+            Console.WriteLine("10. Remove voucher");
+            Console.WriteLine("11. Calculate discount");
+            Console.WriteLine("12. Proceed to checkout");
 
             int selection = GetIntInput();
             while (selection != 1 && selection != 2 && selection != 3 && selection != 4 && selection != 5 &&
-                selection != 6 && selection != 7 && selection != 8 && selection != 9)
+                selection != 6 && selection != 7 && selection != 8 && selection != 9 && selection != 10 && 
+                selection != 11 && selection != 12)
             {
                 selection = GetIntInput();
             }
@@ -75,10 +79,13 @@ namespace _3_FlightTicket
         }
         public static void PrintCheckout(decimal price)
         {
-            Console.WriteLine("");
-            Console.WriteLine("\\-- CHECKOUT --//");
             Console.WriteLine("Total price: " + price);
             Console.WriteLine("");
+        }
+
+        public static void PrintDiscount(decimal discount)
+        {
+            Console.WriteLine("Discount: " + discount);
         }
     }
 }

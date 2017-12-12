@@ -29,7 +29,7 @@ namespace _3_FlightTicket
         {
             Decorator.ITicket ticket = ticketType;
             int selection = MenuUI.PrintExtraSelctionMenu();
-            while (selection != 9) //exit number 9
+            while (selection != 12) //exit number 12
             {
                 switch (selection)
                 {
@@ -49,7 +49,7 @@ namespace _3_FlightTicket
                         ticket = new Decorator.CarRental(ticket);
                         break;
                     case 5:
-                        //ticket = (ExcessLuggage)ticket.RemoveDecorator();
+                        ticket = new Decorator.Voucher(ticket);
                         break;
                     case 6:
 
@@ -59,6 +59,18 @@ namespace _3_FlightTicket
                         break;
                     case 8:
 
+                        break;
+                    case 9:
+
+                        break;
+                    case 10:
+
+                        break;
+                    case 11:
+                        if(ticket is Decorator.Voucher)
+                        {
+                            MenuUI.PrintDiscount(((Decorator.Voucher)ticket).CalculateDiscount());
+                        }
                         break;
                 }
                 selection = MenuUI.PrintExtraSelctionMenu();

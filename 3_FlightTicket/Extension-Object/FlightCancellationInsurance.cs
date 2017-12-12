@@ -10,7 +10,7 @@ namespace _3_FlightTicket.Extension_Object
     {
         public FlightCancellationInsurance()
         {
-            Console.WriteLine("Flight cancelation insurance added to ticket price.");
+            Console.WriteLine("Flight cancelation insurance added to ticket.");
         }
 
         public decimal GetPrice()

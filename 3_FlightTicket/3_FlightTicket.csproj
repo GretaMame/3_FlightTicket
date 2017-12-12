@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="DecoratorController.cs" />
     <Compile Include="Decorator\CarRental.cs" />
+    <Compile Include="Decorator\Voucher.cs" />
     <Compile Include="Decorator\ElectronicTicket.cs" />
     <Compile Include="Decorator\ExcessLuggage.cs" />
     <Compile Include="Decorator\FlightCancelationInsurance.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Decorator\PaperTicket.cs" />
     <Compile Include="Decorator\PriorityBoarding.cs" />
     <Compile Include="Extension-Object\CarRental.cs" />
+    <Compile Include="Extension-Object\Voucher.cs" />
     <Compile Include="Extension-Object\ElectronicTicket.cs" />
     <Compile Include="Extension-Object\ExcessLuggage.cs" />
     <Compile Include="Extension-Object\FlightCancellationInsurance.cs" />

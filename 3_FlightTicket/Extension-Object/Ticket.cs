@@ -8,13 +8,13 @@ namespace _3_FlightTicket.Extension_Object
 {
     abstract class Ticket
     {
-        protected decimal ticketPrice;
+        public decimal TicketPrice { get; set;}
         Dictionary<string, ITicketExtension> extensions;
 
         public Ticket()
         {
             extensions = new Dictionary<string, ITicketExtension>();
-            ticketPrice = 100m;
+            TicketPrice = 100m;
         }
 
         public ITicketExtension GetExtension(string extensionName)
@@ -23,6 +23,7 @@ namespace _3_FlightTicket.Extension_Object
             extensions.TryGetValue(extensionName, out toReturn);
             return toReturn;
         }
+
         public void AddExtension(string extensionName, ITicketExtension extension)
         {
             extensions.Add(extensionName, extension);
@@ -36,7 +37,7 @@ namespace _3_FlightTicket.Extension_Object
 
         public decimal GetPrice()
         {
-            decimal toReturn = ticketPrice;
+            decimal toReturn = TicketPrice;
             foreach(var ext in extensions.Values)
             {
                 toReturn += ext.GetPrice();
