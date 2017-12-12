@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _3_FlightTicket
+namespace _3_FlightTicket.Decorator
 {
     class ElectronicTicket : ITicket
     {

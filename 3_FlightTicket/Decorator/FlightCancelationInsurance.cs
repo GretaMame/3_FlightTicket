@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _3_FlightTicket
+namespace _3_FlightTicket.Decorator
 {
     class FlightCancelationInsurance : TicketDecorator
     {
@@ -20,12 +20,14 @@ namespace _3_FlightTicket
             return ticket.GetPrice() + 20m;
         }
 
-        public override void RemoveDecorator(TicketDecorator decorator)
+        public override ITicket RemoveDecorator()
         {
-            if (decorator is FlightCancelationInsurance)
+            if (ticket is FlightCancelationInsurance)
             {
                 Console.WriteLine("Removing flight ticket cancellation insurance");
+                return ticket;
             }
+            else return ticket;
         }
     }
 }

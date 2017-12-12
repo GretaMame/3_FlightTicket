@@ -42,19 +42,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CarRental.cs" />
-    <Compile Include="ElectronicTicket.cs" />
-    <Compile Include="ExcessLuggage.cs" />
-    <Compile Include="FlightCancelationInsurance.cs" />
-    <Compile Include="ITicket.cs" />
-    <Compile Include="PaperTicket.cs" />
-    <Compile Include="PriorityBoarding.cs" />
+    <Compile Include="Decorator\CarRental.cs" />
+    <Compile Include="Decorator\ElectronicTicket.cs" />
+    <Compile Include="Decorator\ExcessLuggage.cs" />
+    <Compile Include="Decorator\FlightCancelationInsurance.cs" />
+    <Compile Include="Decorator\ITicket.cs" />
+    <Compile Include="Decorator\PaperTicket.cs" />
+    <Compile Include="Decorator\PriorityBoarding.cs" />
+    <Compile Include="Extension-Object\CarRental.cs" />
+    <Compile Include="Extension-Object\ElectronicTicket.cs" />
+    <Compile Include="Extension-Object\ExcessLuggage.cs" />
+    <Compile Include="Extension-Object\FlightCancellationInsurance.cs" />
+    <Compile Include="Extension-Object\PriorityBoarding.cs" />
+    <Compile Include="Extension-Object\TicketExtension.cs" />
+    <Compile Include="Extension-Object\PaperTicket.cs" />
+    <Compile Include="Extension-Object\Ticket.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TicketDecorator.cs" />
+    <Compile Include="Decorator\TicketDecorator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

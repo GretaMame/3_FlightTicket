@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _3_FlightTicket
+namespace _3_FlightTicket.Extension_Object
 {
-    interface ITicket
+    interface TicketExtension
     {
         decimal GetPrice();
     }

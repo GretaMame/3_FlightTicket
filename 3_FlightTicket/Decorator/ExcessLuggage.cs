@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _3_FlightTicket
+namespace _3_FlightTicket.Decorator
 {
     class ExcessLuggage : TicketDecorator
     {
+
         public ExcessLuggage(ITicket ticket)
         {
             Console.WriteLine("Excess luggage added to ticket price.");
@@ -20,12 +21,14 @@ namespace _3_FlightTicket
             return ticket.GetPrice() + 30m;
         }
 
-        public override void RemoveDecorator(TicketDecorator decorator)
+        public override ITicket RemoveDecorator()
         {
-            if (decorator is PriorityBoarding)
+            if (ticket is PriorityBoarding)
             {
                 Console.WriteLine("Removing excess luggage");
+                return ticket;
             }
+            else return ticket;
         }
     }
 }

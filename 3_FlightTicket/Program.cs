@@ -10,19 +10,14 @@ namespace _3_FlightTicket
     {
         static void Main(string[] args)
         {
-            PrintMenu();
-         }
-
-        public static void PrintMenu()
-        {
-            int ticketSelection = PrintTicketSelectionMenu();
-            switch (ticketSelection)
+            int pattern = PrintMainMenu();
+            switch(pattern)
             {
                 case 1:
-                    AddTicketServices(new PaperTicket());
+                    DecoratorMenu();
                     break;
                 case 2:
-                    AddTicketServices(new ElectronicTicket());
+                    ExtensionObjectMenu();
                     break;
                 case 3:
                     Environment.Exit(0);
@@ -30,28 +25,53 @@ namespace _3_FlightTicket
             }
         }
 
-        public static void AddTicketServices(ITicket ticketType)
+        public static void ExtensionObjectMenu()
         {
-            ITicket ticket = ticketType;
+
+        }
+
+        public static void DecoratorMenu()
+        {
+            int ticketSelection = PrintTicketSelectionMenu();
+            switch (ticketSelection)
+            {
+                case 1:
+                    AddTicketServices(new Decorator.PaperTicket());
+                    break;
+                case 2:
+                    AddTicketServices(new Decorator.ElectronicTicket());
+                    break;
+                case 3:
+                    Environment.Exit(0);
+                    break;
+            }
+        }
+
+        public static void AddTicketServices(Decorator.ITicket ticketType)
+        {
+            Decorator.ITicket ticket = ticketType;
             int selection = PrintExtraSelctionMenu();
             while (selection != 9) //exit number 9
             {
                 switch (selection)
                 {
                     case 1:
-                        ticket = new ExcessLuggage(ticket);
+                        if (!(ticket is Decorator.ExcessLuggage))
+                        {
+                            ticket = new Decorator.ExcessLuggage(ticket);
+                        }
                         break;
                     case 2:
-                        ticket = new PriorityBoarding(ticket);
+                        ticket = new Decorator.PriorityBoarding(ticket);
                         break;
                     case 3:
-                        ticket = new FlightCancelationInsurance(ticket);
+                        ticket = new Decorator.FlightCancelationInsurance(ticket);
                         break;
                     case 4:
-                        ticket = new CarRental(ticket);
+                        ticket = new Decorator.CarRental(ticket);
                         break;
                     case 5:
-                        //ticket = (TicketDecorator)ticket.
+                        //ticket = (ExcessLuggage)ticket.RemoveDecorator();
                         break;
                     case 6:
 
@@ -69,7 +89,7 @@ namespace _3_FlightTicket
             Console.WriteLine("\\-- CHECKOUT --//");
             Console.WriteLine("Total price: " + ticket.GetPrice());
             Console.WriteLine("");
-            PrintMenu();
+            DecoratorMenu();
 
         }
 
@@ -120,6 +140,21 @@ namespace _3_FlightTicket
             while (!Int32.TryParse(Console.ReadLine(), out selection))
             {
                 Console.WriteLine("Please enter valid selection");
+            }
+            return selection;
+        }
+
+        public static int PrintMainMenu()
+        {
+            Console.WriteLine("Please select one of th design patterns");
+            Console.WriteLine("1. Decorator pattern");
+            Console.WriteLine("2. Extension object");
+            Console.WriteLine("3. Exit program");
+            int selection = GetIntInput();
+            while(selection != 1 && selection != 2 && selection != 3)
+            {
+                Console.WriteLine("Please enter valid selection");
+                selection = GetIntInput();
             }
             return selection;
         }
