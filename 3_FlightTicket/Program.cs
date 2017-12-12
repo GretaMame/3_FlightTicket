@@ -10,6 +10,118 @@ namespace _3_FlightTicket
     {
         static void Main(string[] args)
         {
+            PrintMenu();
+         }
+
+        public static void PrintMenu()
+        {
+            int ticketSelection = PrintTicketSelectionMenu();
+            switch (ticketSelection)
+            {
+                case 1:
+                    AddTicketServices(new PaperTicket());
+                    break;
+                case 2:
+                    AddTicketServices(new ElectronicTicket());
+                    break;
+                case 3:
+                    Environment.Exit(0);
+                    break;
+            }
+        }
+
+        public static void AddTicketServices(ITicket ticketType)
+        {
+            ITicket ticket = ticketType;
+            int selection = PrintExtraSelctionMenu();
+            while (selection != 9) //exit number 9
+            {
+                switch (selection)
+                {
+                    case 1:
+                        ticket = new ExcessLuggage(ticket);
+                        break;
+                    case 2:
+                        ticket = new PriorityBoarding(ticket);
+                        break;
+                    case 3:
+                        ticket = new FlightCancelationInsurance(ticket);
+                        break;
+                    case 4:
+                        ticket = new CarRental(ticket);
+                        break;
+                    case 5:
+                        //ticket = (TicketDecorator)ticket.
+                        break;
+                    case 6:
+
+                        break;
+                    case 7:
+
+                        break;
+                    case 8:
+
+                        break;
+                }
+                selection = PrintExtraSelctionMenu();
+            }
+            Console.WriteLine("");
+            Console.WriteLine("\\-- CHECKOUT --//");
+            Console.WriteLine("Total price: " + ticket.GetPrice());
+            Console.WriteLine("");
+            PrintMenu();
+
+        }
+
+        public static int PrintExtraSelctionMenu()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Please select one of the following ticket types");
+            Console.WriteLine("1. Add excess luggage");
+            Console.WriteLine("2. Add priority boarding");
+            Console.WriteLine("3. Add flight cancellation insurance");
+            Console.WriteLine("4. Add car rental");
+            Console.WriteLine("5. Remove excess luggage");
+            Console.WriteLine("6. Remove priority boarding");
+            Console.WriteLine("7. Remove flight cancellation insurance");
+            Console.WriteLine("8. Remove car rental");
+            Console.WriteLine("9. Proceed to checkout");
+
+            int selection = GetIntInput();
+            while (selection != 1 && selection != 2 && selection != 3 && selection != 4 && selection != 5 &&
+                selection != 6 && selection != 7 && selection != 8 && selection != 9)
+            {
+                selection = GetIntInput();
+            }
+            return selection;
+        }
+
+        public static int PrintTicketSelectionMenu()
+        {
+            Console.WriteLine("\\-- Welcome to our flight ticket reservation program --//");
+            Console.WriteLine("");
+            Console.WriteLine("Please select one of the following ticket types");
+            Console.WriteLine("1. Paper ticket");
+            Console.WriteLine("2. Electronic ticket");
+            Console.WriteLine("3. Exit program");
+            Console.WriteLine("");
+            int selection = GetIntInput();
+            while (selection != 1 && selection != 2 && selection != 3)
+            {
+                Console.WriteLine("Please enter valid selection");
+                selection = GetIntInput();
+            }
+            return selection;
+        }
+
+        static int GetIntInput()
+        {
+            int selection;
+            while (!Int32.TryParse(Console.ReadLine(), out selection))
+            {
+                Console.WriteLine("Please enter valid selection");
+            }
+            return selection;
         }
     }
 }
