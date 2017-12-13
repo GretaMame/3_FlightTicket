@@ -34,10 +34,7 @@ namespace _3_FlightTicket
                 switch (selection)
                 {
                     case 1:
-                        if (!(ticket is Decorator.ExcessLuggage))
-                        {
-                            ticket = new Decorator.ExcessLuggage(ticket);
-                        }
+                        ticket = new Decorator.ExcessLuggage(ticket);
                         break;
                     case 2:
                         ticket = new Decorator.PriorityBoarding(ticket);
@@ -52,30 +49,31 @@ namespace _3_FlightTicket
                         ticket = new Decorator.Voucher(ticket);
                         break;
                     case 6:
-
+                        ticket = (ticket as Decorator.TicketDecorator).RemoveDecorator<Decorator.ExcessLuggage>();
                         break;
                     case 7:
-
+                        ticket = (ticket as Decorator.TicketDecorator).RemoveDecorator<Decorator.PriorityBoarding>();
                         break;
                     case 8:
-
+                        ticket = (ticket as Decorator.TicketDecorator).RemoveDecorator<Decorator.FlightCancelationInsurance>();
                         break;
                     case 9:
-
+                        ticket = (ticket as Decorator.TicketDecorator).RemoveDecorator<Decorator.CarRental>();
                         break;
                     case 10:
-
+                        ticket = (ticket as Decorator.TicketDecorator).RemoveDecorator<Decorator.Voucher>();
                         break;
                     case 11:
-                        if(ticket is Decorator.Voucher)
+                        Decorator.Voucher voucher = (ticket as Decorator.TicketDecorator).GetDecorator<Decorator.Voucher>();
+                        if (voucher != null)
                         {
-                            MenuUI.PrintDiscount(((Decorator.Voucher)ticket).CalculateDiscount());
+                            MenuUI.PrintDiscount(voucher.CalculateDiscount());
                         }
                         break;
                 }
                 selection = MenuUI.PrintExtraSelctionMenu();
             }
-            MenuUI.PrintCheckout(ticket.GetPrice());
+            MenuUI.PrintCheckout(ticket.CalculatePrice());
             DecoratorMenu();
         }
     }

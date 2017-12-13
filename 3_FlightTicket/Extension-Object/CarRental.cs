@@ -8,8 +8,8 @@ namespace _3_FlightTicket.Extension_Object
 {
     class CarRental : ITicketExtension
     {
-        decimal rentalCarInsurancePrice;
         decimal rentalCarPrice;
+        public Ticket ticket { private get; set;}
 
         public CarRental()
         {
@@ -17,17 +17,10 @@ namespace _3_FlightTicket.Extension_Object
             rentalCarPrice = 100m;
         }
 
-        public decimal GetPrice()
+        public decimal CalculatePrice()
         {
-            AddRentalCarInsurance();
             Console.WriteLine("Car rental: " + rentalCarPrice);
-            return rentalCarPrice + rentalCarInsurancePrice;
-        }
-
-        public void AddRentalCarInsurance()
-        {
-            rentalCarInsurancePrice = 20m;
-            Console.WriteLine("Rental car insurance: " + rentalCarInsurancePrice);
+            return ticket.CalculatePrice() + rentalCarPrice;
         }
     }
 }

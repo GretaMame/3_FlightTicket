@@ -8,25 +8,17 @@ namespace _3_FlightTicket.Decorator
 {
     class PriorityBoarding : TicketDecorator
     {
+        decimal priorityBoarding;
         public PriorityBoarding(ITicket ticket) : base(ticket)
         {
             Console.WriteLine("Priority boarding added to ticket.");
+            priorityBoarding = 5m;
         }
 
-        public override decimal GetPrice()
+        public override decimal CalculatePrice()
         {
-            Console.WriteLine("Priority boarding: " + 5m);
-            return base.GetPrice() + 5m;
+            Console.WriteLine("Priority boarding: " + priorityBoarding);
+            return base.CalculatePrice() + priorityBoarding;
         }
-
-        //public override ITicket RemoveDecorator()
-        //{
-        //    if (ticket is PriorityBoarding)
-        //    {
-        //        Console.WriteLine("Removing priority boarding");
-        //        return ticket;
-        //    }
-        //    else return ticket;
-        //}
     }
 }

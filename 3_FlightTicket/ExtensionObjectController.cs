@@ -77,7 +77,7 @@ namespace _3_FlightTicket
                 }
                 selection = MenuUI.PrintExtraSelctionMenu();
             }
-            MenuUI.PrintCheckout(ticket.GetPrice());
+            MenuUI.PrintCheckout(ticket.CalculatePrice());
             ExtensionObjectMenu();
         }
     }

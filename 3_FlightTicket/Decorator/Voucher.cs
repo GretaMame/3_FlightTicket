@@ -15,20 +15,24 @@ namespace _3_FlightTicket.Decorator
             discount = 0.1m;
         }
 
-        public override decimal GetPrice()
+        public override decimal CalculatePrice()
         {
-           // ticket.TicketPrice -= ticket.TicketPrice * discount;
-            return base.GetPrice();
+            Console.WriteLine("Price before discount: " + GetPrice());
+            decimal disc = GetPrice() * discount;
+            ChangePrice(GetPrice() - disc);
+            Console.WriteLine("Discount: -"+ disc);
+            Console.WriteLine("Price after discount: " + GetPrice());
+            return base.CalculatePrice();
+        }
+
+        public void setDiscount(decimal discount)
+        {
+            this.discount = discount;
         }
 
         public decimal CalculateDiscount()
         {
-            return base.GetPrice() * discount;
+            return (GetPrice() * discount);
         }
-
-        //public override ITicket RemoveDecorator()
-        //{
-        //    return ticket;
-        //}
     }
 }

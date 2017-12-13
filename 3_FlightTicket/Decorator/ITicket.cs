@@ -8,7 +8,9 @@ namespace _3_FlightTicket.Decorator
 {
     interface ITicket
     {
-        decimal TicketPrice { get; set; }
+        decimal CalculatePrice();
+        void ChangePrice(decimal price);
         decimal GetPrice();
+
     }
 }

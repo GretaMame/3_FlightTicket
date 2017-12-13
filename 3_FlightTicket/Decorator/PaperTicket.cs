@@ -8,17 +8,27 @@ namespace _3_FlightTicket.Decorator
 {
     class PaperTicket : ITicket
     {
-        public decimal TicketPrice { get; set; }
+        public decimal ticketPrice;
         public PaperTicket()
         {
-            TicketPrice = 120m;
+            ticketPrice = 120m;
             Console.WriteLine("Paper ticket created.");
-            Console.WriteLine("Original price: "+ TicketPrice);
+            Console.WriteLine("Original price: "+ ticketPrice);
         }
+        public decimal CalculatePrice()
+        {
+            Console.WriteLine("Ticket price: " + ticketPrice);
+            return ticketPrice;
+        }
+
+        public void ChangePrice(decimal price)
+        {
+            ticketPrice = price;
+        }
+
         public decimal GetPrice()
         {
-            Console.WriteLine("Ticket price: " + TicketPrice);
-            return TicketPrice;
+            return ticketPrice;
         }
     }
 }

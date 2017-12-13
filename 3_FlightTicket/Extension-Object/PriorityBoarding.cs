@@ -13,7 +13,7 @@ namespace _3_FlightTicket.Extension_Object
             Console.WriteLine("Priority boarding added to ticket.");
         }
 
-        public decimal GetPrice()
+        public decimal CalculatePrice()
         {
             Console.WriteLine("Priority boarding: " + 5m);
             return 5m;

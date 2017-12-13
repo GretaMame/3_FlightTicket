@@ -13,7 +13,7 @@ namespace _3_FlightTicket.Extension_Object
             Console.WriteLine("Flight cancelation insurance added to ticket.");
         }
 
-        public decimal GetPrice()
+        public decimal CalculatePrice()
         {
             Console.WriteLine("Flight cancelation insurance: " + 20m);
             return 20m;

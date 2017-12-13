@@ -13,7 +13,7 @@ namespace _3_FlightTicket.Extension_Object
             Console.WriteLine("Excess luggage added to ticket.");
         }
 
-        public decimal GetPrice()
+        public decimal CalculatePrice()
         {
             Console.WriteLine("Excess luggage: " + 30m);
             return 30m;

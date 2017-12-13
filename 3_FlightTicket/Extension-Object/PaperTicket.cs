@@ -16,7 +16,7 @@ namespace _3_FlightTicket.Extension_Object
 
         public void AddPaperFee()
         {
-            TicketPrice += 20m;
+            ChangePrice(GetPrice() + 20m);
         }
     }
 }

@@ -10,13 +10,14 @@ namespace _3_FlightTicket.Extension_Object
     {
         decimal discount;
 
+
         public Voucher()
         {
             Console.WriteLine("Discount added to ticket.");
             discount = 0.1m;
         }
 
-        public decimal GetPrice()
+        public decimal CalculatePrice()
         {
             //reikia kazkaip nueit iki pagrindinio ir is jo pasiimt kaina
             return 0m;

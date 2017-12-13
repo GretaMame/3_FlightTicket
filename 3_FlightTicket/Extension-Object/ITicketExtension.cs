@@ -8,6 +8,6 @@ namespace _3_FlightTicket.Extension_Object
 {
     interface ITicketExtension
     {
-        decimal GetPrice();
+        decimal CalculatePrice();
     }
 }

@@ -10,6 +10,17 @@ namespace _3_FlightTicket
     {
         static void Main(string[] args)
         {
+            //Decorator.ITicket ticket = new Decorator.ExcessLuggage( new Decorator.PriorityBoarding( new Decorator.PaperTicket()));
+            //Decorator.TicketDecorator dec = (ticket as Decorator.TicketDecorator).GetDecorator<Decorator.PriorityBoarding>();
+            //Decorator.TicketDecorator dec2 = (ticket as Decorator.TicketDecorator).GetDecorator<Decorator.FlightCancelationInsurance>();
+            //if (dec != null)
+            //{
+            //    Console.WriteLine("dec:" + dec.GetType().ToString());
+            //}
+            //if (dec2 != null)
+            //{
+            //    Console.WriteLine("dec2: " + dec2.GetType().ToString());
+            //}
             int pattern = MenuUI.PrintMainMenu();
             switch (pattern)
             {
