@@ -8,7 +8,6 @@ namespace _3_FlightTicket.Decorator
 {
     abstract class TicketDecorator : ITicket
     {
-        public decimal TicketPrice { get; set; }
         private ITicket ticket;
 
         public TicketDecorator(ITicket ticket)

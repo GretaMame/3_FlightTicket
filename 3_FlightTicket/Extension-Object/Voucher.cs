@@ -33,5 +33,10 @@ namespace _3_FlightTicket.Extension_Object
         {
             return discount * ticket.GetPrice();
         }
+
+        public void SetDiscount(decimal discount)
+        {
+            this.discount = discount;
+        }
     }
 }
