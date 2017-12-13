@@ -8,15 +8,18 @@ namespace _3_FlightTicket.Extension_Object
 {
     class ExcessLuggage : ITicketExtension
     {
+        decimal luggagePrice;
+
         public ExcessLuggage()
         {
             Console.WriteLine("Excess luggage added to ticket.");
+            luggagePrice = 30m;
         }
 
         public decimal CalculatePrice()
         {
-            Console.WriteLine("Excess luggage: " + 30m);
-            return 30m;
+            Console.WriteLine("Excess luggage: " + luggagePrice);
+            return luggagePrice;
         }
     }
 }

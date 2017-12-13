@@ -8,15 +8,18 @@ namespace _3_FlightTicket.Extension_Object
 {
     class PriorityBoarding : ITicketExtension
     {
+        decimal priorityBoardingPrice;
+
         public PriorityBoarding()
         {
             Console.WriteLine("Priority boarding added to ticket.");
+            priorityBoardingPrice = 5m;
         }
 
         public decimal CalculatePrice()
         {
-            Console.WriteLine("Priority boarding: " + 5m);
-            return 5m;
+            Console.WriteLine("Priority boarding: " + priorityBoardingPrice);
+            return priorityBoardingPrice;
         }
     }
 }

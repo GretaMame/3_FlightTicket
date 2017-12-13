@@ -8,17 +8,17 @@ namespace _3_FlightTicket.Decorator
 {
     class FlightCancelationInsurance : TicketDecorator
     {
-        decimal flightCancelationInsurance;
+        decimal insurancePrice;
         public FlightCancelationInsurance(ITicket ticket) : base(ticket)
         {
             Console.WriteLine("Flight cancelation insurance added to ticket.");
-            flightCancelationInsurance = 20m;
+            insurancePrice = 20m;
         }
 
         public override decimal CalculatePrice()
         {
-            Console.WriteLine("Flight cancelation insurance: " + flightCancelationInsurance);
-            return base.CalculatePrice() + flightCancelationInsurance;
+            Console.WriteLine("Flight cancelation insurance: " + insurancePrice);
+            return base.CalculatePrice() + insurancePrice;
         }
     }
 }

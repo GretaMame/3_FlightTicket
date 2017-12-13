@@ -8,15 +8,18 @@ namespace _3_FlightTicket.Extension_Object
 {
     class FlightCancellationInsurance : ITicketExtension
     {
+        decimal insurancePrice;
+
         public FlightCancellationInsurance()
         {
             Console.WriteLine("Flight cancelation insurance added to ticket.");
+            insurancePrice = 20m;
         }
 
         public decimal CalculatePrice()
         {
-            Console.WriteLine("Flight cancelation insurance: " + 20m);
-            return 20m;
+            Console.WriteLine("Flight cancelation insurance: " + insurancePrice);
+            return insurancePrice;
         }
     }
 }

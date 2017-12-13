@@ -9,7 +9,7 @@ namespace _3_FlightTicket.Extension_Object
     class Voucher : ITicketExtension
     {
         decimal discount;
-        Ticket ticket;
+        private Ticket ticket;
 
         public Voucher(Ticket ticket)
         {

@@ -8,15 +8,17 @@ namespace _3_FlightTicket.Extension_Object
 {
     class PaperTicket : Ticket
     {
+        decimal fee;
         public PaperTicket()
         {
             Console.WriteLine("Paper ticket created.");
-            AddPaperFee();
+            AddPaperFee(20m);
         }
 
-        public void AddPaperFee()
+        public void AddPaperFee(decimal fee)
         {
-            ChangePrice(GetPrice() + 20m);
+            this.fee = fee;
+            ChangePrice(GetPrice() + fee);
         }
     }
 }
