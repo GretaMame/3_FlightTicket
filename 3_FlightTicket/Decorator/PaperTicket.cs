@@ -12,6 +12,7 @@ namespace _3_FlightTicket.Decorator
         public PaperTicket()
         {
             ticketPrice = 100m;
+            AddPaperFee(20m);
             Console.WriteLine("Paper ticket created.");
             Console.WriteLine("Original price: "+ ticketPrice);
         }
@@ -31,9 +32,9 @@ namespace _3_FlightTicket.Decorator
             return ticketPrice;
         }
 
-        public void AddPaperFee()
+        public void AddPaperFee(decimal fee)
         {
-            ticketPrice += 20m;
+            ticketPrice += fee;
         }
     }
 }
