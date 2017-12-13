@@ -9,7 +9,6 @@ namespace _3_FlightTicket.Extension_Object
     class CarRental : ITicketExtension
     {
         decimal rentalCarPrice;
-        public Ticket ticket { private get; set;}
 
         public CarRental()
         {
@@ -20,7 +19,7 @@ namespace _3_FlightTicket.Extension_Object
         public decimal CalculatePrice()
         {
             Console.WriteLine("Car rental: " + rentalCarPrice);
-            return ticket.CalculatePrice() + rentalCarPrice;
+            return rentalCarPrice;
         }
     }
 }

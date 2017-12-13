@@ -51,7 +51,7 @@ namespace _3_FlightTicket
                         ticket.AddExtension(carRental, new Extension_Object.CarRental());
                         break;
                     case 5:
-                        ticket.AddExtension(voucher, new Extension_Object.Voucher());
+                        ticket.AddExtension(voucher, new Extension_Object.Voucher(ticket));
                         break;
                     case 6:
                         ticket.RemoveExtension(excessLuggage);

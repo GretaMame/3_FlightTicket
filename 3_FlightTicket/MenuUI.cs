@@ -65,7 +65,7 @@ namespace _3_FlightTicket
 
         public static int PrintMainMenu()
         {
-            Console.WriteLine("Please select one of th design patterns");
+            Console.WriteLine("Please select one of the design patterns");
             Console.WriteLine("1. Decorator pattern");
             Console.WriteLine("2. Extension object");
             Console.WriteLine("3. Exit program");

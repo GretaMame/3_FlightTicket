@@ -26,23 +26,32 @@ namespace _3_FlightTicket.Extension_Object
 
         public void AddExtension(string extensionName, ITicketExtension extension)
         {
-            extensions.Add(extensionName, extension);
+            if (!extensions.ContainsKey(extensionName))
+            {
+                extensions.Add(extensionName, extension);
+            }
         }
 
 
         public void RemoveExtension(string extensionName)
         {
-            extensions.Remove(extensionName);   
+            if (extensions.ContainsKey(extensionName))
+            {
+                extensions.Remove(extensionName);
+                Console.WriteLine(extensionName + " removed from ticket.");
+            }
+            else Console.WriteLine("Ticket has no "+ extensionName);
         }
 
         public decimal CalculatePrice()
         {
-            decimal toReturn = ticketPrice;
+            decimal toReturn = 0;
             foreach(var ext in extensions.Values)
             {
                 toReturn += ext.CalculatePrice();
             }
-            return toReturn;
+            Console.WriteLine("Original ticket price: "+ ticketPrice);
+            return ticketPrice + toReturn;
         }
 
         public decimal GetPrice()
