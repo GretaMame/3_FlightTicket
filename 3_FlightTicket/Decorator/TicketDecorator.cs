@@ -9,6 +9,7 @@ namespace _3_FlightTicket.Decorator
     abstract class TicketDecorator : ITicket
     {
         private ITicket ticket;
+        public decimal ticketPrice { get; set; }
 
         public TicketDecorator(ITicket ticket)
         {
@@ -35,6 +36,7 @@ namespace _3_FlightTicket.Decorator
             }
             return this;  
         }
+        
 
         public T GetDecorator<T>() where T : TicketDecorator
         {
@@ -52,14 +54,14 @@ namespace _3_FlightTicket.Decorator
             else return null;
         }
 
-        public virtual void ChangePrice(decimal price)
+        public ITicket GetTicket()
         {
-            ticket.ChangePrice(price);
-        }
-
-        public virtual decimal GetPrice()
-        {
-            return ticket.GetPrice();
+            ITicket toReturn = ticket;
+            if (toReturn is TicketDecorator)
+            {
+                toReturn = (ticket as TicketDecorator).GetTicket();
+            }
+            return toReturn;
         }
     }
-}
+}   

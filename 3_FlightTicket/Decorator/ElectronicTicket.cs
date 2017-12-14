@@ -8,7 +8,7 @@ namespace _3_FlightTicket.Decorator
 {
     class ElectronicTicket : ITicket
     {
-        public decimal ticketPrice;
+        public decimal ticketPrice { get; set; }
         public ElectronicTicket()
         {
             ticketPrice = 100m;

@@ -17,11 +17,11 @@ namespace _3_FlightTicket.Decorator
 
         public override decimal CalculatePrice()
         {
-            Console.WriteLine("Price before discount: " + GetPrice());
-            decimal disc = GetPrice() * discount;
-            ChangePrice(GetPrice() - disc);
+            Console.WriteLine("Price before discount: " + GetTicket().ticketPrice);
+            decimal disc = GetTicket().ticketPrice * discount;
+            GetTicket().ticketPrice -= disc;
             Console.WriteLine("Discount: -"+ disc);
-            Console.WriteLine("Price after discount: " + GetPrice());
+            Console.WriteLine("Price after discount: " + GetTicket().ticketPrice);
             return base.CalculatePrice();
         }
 
@@ -32,7 +32,7 @@ namespace _3_FlightTicket.Decorator
 
         public decimal CalculateDiscount()
         {
-            return (GetPrice() * discount);
+            return (GetTicket().ticketPrice * discount);
         }
     }
 }
