@@ -26,9 +26,7 @@ namespace _3_FlightTicket
             Console.WriteLine("12. Proceed to checkout");
 
             int selection = GetIntInput();
-            while (selection != 1 && selection != 2 && selection != 3 && selection != 4 && selection != 5 &&
-                selection != 6 && selection != 7 && selection != 8 && selection != 9 && selection != 10 && 
-                selection != 11 && selection != 12)
+            while (selection < 1 && selection > 12)
             {
                 selection = GetIntInput();
             }
@@ -45,7 +43,7 @@ namespace _3_FlightTicket
             Console.WriteLine("3. Exit program");
             Console.WriteLine("");
             int selection = GetIntInput();
-            while (selection != 1 && selection != 2 && selection != 3)
+            while (selection < 1 && selection > 3)
             {
                 Console.WriteLine("Please enter valid selection");
                 selection = GetIntInput();
